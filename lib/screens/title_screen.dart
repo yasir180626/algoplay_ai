@@ -12,7 +12,7 @@ class TitleScreen extends StatelessWidget {
           // 1. Gambar Latar Belakang (Background)
           Positioned.fill(
             child: Image.asset(
-              'assets/images/bg_title.png',
+              'assets/backgrounds/03_title_screen.png',
               fit: BoxFit.cover,
             ),
           ),
@@ -57,8 +57,6 @@ class TitleScreen extends StatelessWidget {
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  // Logo AlgoPlay AI
-                  _buildLogo(),
 
                   const SizedBox(height: 12),
 
@@ -136,87 +134,6 @@ class TitleScreen extends StatelessWidget {
           ),
         ],
       ),
-    );
-  }
-
-  // Widget Logo Title "AlgoPlay AI"
-  Widget _buildLogo() {
-    return Column(
-      children: [
-        // AlgoPlay dengan efek Text Border / Stroke
-        Stack(
-          alignment: Alignment.center,
-          children: [
-            // Outlined Border luar
-            Text(
-              'AlgoPlay',
-              style: TextStyle(
-                fontSize: 54,
-                fontWeight: FontWeight.w900,
-                letterSpacing: -1,
-                foreground: Paint()
-                  ..style = PaintingStyle.stroke
-                  ..strokeWidth = 10
-                  ..strokeJoin = StrokeJoin.round
-                  ..color = const Color(0xFF0C3875),
-              ),
-            ),
-            // Teks Isi (Fill Gradient/Warna Putih & Kuning)
-            Row(
-              mainAxisSize: MainAxisSize.min,
-              children: const [
-                Text(
-                  'Algo',
-                  style: TextStyle(
-                    fontSize: 54,
-                    fontWeight: FontWeight.w900,
-                    letterSpacing: -1,
-                    color: Colors.white,
-                  ),
-                ),
-                Text(
-                  'Play',
-                  style: TextStyle(
-                    fontSize: 54,
-                    fontWeight: FontWeight.w900,
-                    letterSpacing: -1,
-                    color: Color(0xFFFFB834),
-                  ),
-                ),
-              ],
-            ),
-          ],
-        ),
-
-        const SizedBox(height: 2),
-
-        // Badge / Pill "AI"
-        Container(
-          padding: const EdgeInsets.symmetric(horizontal: 22, vertical: 2),
-          decoration: BoxDecoration(
-            color: const Color(0xFFFFB834),
-            borderRadius: BorderRadius.circular(20),
-            border: Border.all(
-              color: const Color(0xFF0C3875),
-              width: 3.5,
-            ),
-            boxShadow: const [
-              BoxShadow(
-                color: Color(0xFF0C3875),
-                offset: Offset(0, 3),
-              ),
-            ],
-          ),
-          child: const Text(
-            'AI',
-            style: TextStyle(
-              fontSize: 18,
-              fontWeight: FontWeight.w900,
-              color: Color(0xFF0C3875),
-            ),
-          ),
-        ),
-      ],
     );
   }
 
