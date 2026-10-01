@@ -11,7 +11,6 @@ class SplashScreen extends StatefulWidget {
 
 class _SplashScreenState extends State<SplashScreen>
     with SingleTickerProviderStateMixin {
-
   late AnimationController _controller;
   late Animation<double> _scaleAnimation;
   late Animation<double> _fadeAnimation;
@@ -26,7 +25,7 @@ class _SplashScreenState extends State<SplashScreen>
     );
 
     _scaleAnimation = Tween<double>(
-      begin: 0.8,
+      begin: 0.7,
       end: 1.0,
     ).animate(
       CurvedAnimation(
@@ -47,6 +46,7 @@ class _SplashScreenState extends State<SplashScreen>
 
     _controller.forward();
 
+    // Setelah 3 detik masuk ke Login
     Timer(const Duration(seconds: 3), () {
       if (!mounted) return;
 
@@ -68,51 +68,17 @@ class _SplashScreenState extends State<SplashScreen>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFF071A33),
+      backgroundColor: Colors.black,
       body: Center(
         child: FadeTransition(
           opacity: _fadeAnimation,
           child: ScaleTransition(
             scale: _scaleAnimation,
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-
-                Container(
-                  width: 150,
-                  height: 150,
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.circular(35),
-                  ),
-                  child: const Icon(
-                    Icons.code,
-                    size: 80,
-                    color: Color(0xFF00B8D4),
-                  ),
-                ),
-
-                const SizedBox(height: 25),
-
-                const Text(
-                  'AlgoPlay AI',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 42,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-
-                const SizedBox(height: 8),
-
-                const Text(
-                  'Learn • Code • Level Up',
-                  style: TextStyle(
-                    color: Colors.cyanAccent,
-                    fontSize: 18,
-                  ),
-                ),
-              ],
+            child: Image.asset(
+              'assets/backgrounds/01_splash.png',
+              width: 220,
+              height: 220,
+              fit: BoxFit.contain,
             ),
           ),
         ),
