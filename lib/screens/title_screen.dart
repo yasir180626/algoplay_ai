@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 import 'main_menu_screen.dart';
 
 class TitleScreen extends StatelessWidget {
@@ -40,7 +41,11 @@ class TitleScreen extends StatelessWidget {
                     ],
                   ),
                   child: IconButton(
-                    icon: const Icon(Icons.settings, color: Colors.white, size: 26),
+                    icon: const Icon(
+                      Icons.settings,
+                      color: Colors.white,
+                      size: 26,
+                    ),
                     onPressed: () {
                       // Aksi pengaturan
                     },
@@ -50,14 +55,14 @@ class TitleScreen extends StatelessWidget {
             ),
           ),
 
-          // 3. Konten Tengah: Logo, Tagline, Tombol Mulai, & Sub-teks
-          Center(
+          // 3. Konten Tengah: Tombol Mulai, & Sub-teks
+          Align(
+            alignment: const Alignment(0, 0.25),
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 24.0),
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
-
                   const SizedBox(height: 12),
 
                   // Tagline: "Code Your Adventure!"
@@ -145,10 +150,7 @@ class TitleScreen extends StatelessWidget {
       decoration: BoxDecoration(
         color: const Color(0xFFC77700), // Bayangan bawah tombol (efek 3D tebal)
         borderRadius: BorderRadius.circular(16),
-        border: Border.all(
-          color: const Color(0xFF0C3875),
-          width: 3,
-        ),
+        border: Border.all(color: const Color(0xFF0C3875), width: 3),
       ),
       child: Container(
         margin: const EdgeInsets.only(bottom: 4), // Memberi celah layer 3D
@@ -157,10 +159,7 @@ class TitleScreen extends StatelessWidget {
           gradient: const LinearGradient(
             begin: Alignment.topCenter,
             end: Alignment.bottomCenter,
-            colors: [
-              Color(0xFFFFDF6D),
-              Color(0xFFFFAD26),
-            ],
+            colors: [Color(0xFFFFDF6D), Color(0xFFFFAD26)],
           ),
         ),
         child: Material(
@@ -170,9 +169,7 @@ class TitleScreen extends StatelessWidget {
             onTap: () {
               Navigator.pushReplacement(
                 context,
-                MaterialPageRoute(
-                  builder: (_) => const MainMenuScreen(),
-                ),
+                MaterialPageRoute(builder: (_) => const MainMenuScreen()),
               );
             },
             child: const Center(

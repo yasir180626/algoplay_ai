@@ -63,6 +63,8 @@ flutter:
     - assets/backgrounds/01_splash.png
     - assets/backgrounds/02_login.png
     - assets/backgrounds/03_title_screen.png
+    - assets/backgrounds/04_logo.png
+    - assets/backgrounds/05_main_menu.png
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg
 
