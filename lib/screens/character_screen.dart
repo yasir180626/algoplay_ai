@@ -13,70 +13,104 @@ class CharacterScreen extends StatelessWidget {
         foregroundColor: Colors.white,
       ),
       body: Center(
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Container(
-              width: 220,
-              height: 280,
-              decoration: BoxDecoration(
-                color: const Color(0xFF14253A),
-                borderRadius: BorderRadius.circular(25),
+        child: SingleChildScrollView(
+          padding: const EdgeInsets.all(20),
+          child: Column(
+            children: [
+              const Text(
+                'PILIH KARAKTER',
+                style: TextStyle(
+                  color: Colors.cyanAccent,
+                  fontSize: 26,
+                  fontWeight: FontWeight.bold,
+                ),
               ),
-              child: const Column(
-                mainAxisAlignment: MainAxisAlignment.center,
+              const SizedBox(height: 10),
+
+              const Text(
+                'Pilih karakter untuk petualanganmu!',
+                style: TextStyle(
+                  color: Colors.white70,
+                  fontSize: 15,
+                ),
+              ),
+
+              const SizedBox(height: 25),
+
+              Wrap(
+                alignment: WrapAlignment.center,
+                spacing: 25,
+                runSpacing: 25,
                 children: [
-                  Icon(
-                    Icons.person,
-                    size: 120,
+                  _characterCard(
+                    imagePath: 'assets/characters/player_front.png',
+                    name: 'CODER',
+                    description: 'Karakter laki-laki',
                     color: Colors.cyanAccent,
                   ),
-                  Text(
-                    'CODER',
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 24,
-                      fontWeight: FontWeight.bold,
-                    ),
+                     _characterCard(
+                    imagePath: 'assets/characters/player_female.png',
+                    name: 'CODE GIRL',
+                    description: 'Karakter perempuan',
+                    color: const Color(0xFFB388FF),
                   ),
                 ],
               ),
-            ),
-
-            const SizedBox(width: 40),
-
-            const Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  'Character Pemula',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 28,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-                SizedBox(height: 15),
-                Text(
-                  'Level 1',
-                  style: TextStyle(
-                    color: Colors.white70,
-                    fontSize: 18,
-                  ),
-                ),
-                Text(
-                  'XP: 0 / 100',
-                  style: TextStyle(
-                    color: Colors.white70,
-                    fontSize: 18,
-                  ),
-                ),
-              ],
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );
   }
+  Widget _characterCard({
+  required String imagePath,
+  required String name,
+  required String description,
+  required Color color,
+}) {
+  return Container(
+    width: 220,
+    padding: const EdgeInsets.all(16),
+    decoration: BoxDecoration(
+      color: const Color(0xFF14253A),
+      borderRadius: BorderRadius.circular(25),
+      border: Border.all(color: color, width: 2),
+    ),
+    child: Column(
+      children: [
+        SizedBox(
+          height: 280,
+          child: Image.asset(
+            imagePath,
+            fit: BoxFit.contain,
+          ),
+        ),
+        const SizedBox(height: 12),
+        Text(
+          name,
+          style: TextStyle(
+            color: color,
+            fontSize: 22,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+        const SizedBox(height: 8),
+        Text(
+          description,
+          style: const TextStyle(
+            color: Colors.white70,
+            fontSize: 14,
+          ),
+        ),
+        const SizedBox(height: 12),
+        ElevatedButton(
+          onPressed: () {
+            debugPrint('Karakter dipilih: $name');
+          },
+          child: const Text('PILIH KARAKTER'),
+        ),
+      ],
+    ),
+  );
+}
 }
