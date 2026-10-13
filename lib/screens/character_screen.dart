@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 
+
+final ValueNotifier<String?> selectedCharacterAsset =
+    ValueNotifier<String?>(null);
+
 class CharacterScreen extends StatelessWidget {
   const CharacterScreen({super.key});
 
@@ -44,13 +48,13 @@ class CharacterScreen extends StatelessWidget {
                 children: [
                   _characterCard(
                     imagePath: 'assets/characters/player_front.png',
-                    name: 'CODER',
+                    name: 'TIMO',
                     description: 'Karakter laki-laki',
                     color: Colors.cyanAccent,
                   ),
                      _characterCard(
                     imagePath: 'assets/characters/player_female.png',
-                    name: 'CODE GIRL',
+                    name: 'MILO',
                     description: 'Karakter perempuan',
                     color: const Color(0xFFB388FF),
                   ),
@@ -105,6 +109,7 @@ class CharacterScreen extends StatelessWidget {
         const SizedBox(height: 12),
         ElevatedButton(
           onPressed: () {
+            selectedCharacterAsset.value = imagePath;
             debugPrint('Karakter dipilih: $name');
           },
           child: const Text('PILIH KARAKTER'),
