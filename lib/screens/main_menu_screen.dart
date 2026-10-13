@@ -97,8 +97,8 @@ class MainMenuScreen extends StatelessWidget {
                     Positioned(
                       left: width * 0.30,
                       right: width * 0.30,
-                      top: height * 0.28,
-                      bottom: height * 0.08,
+                      top: height * 0.22,
+                      bottom: height * 0.21,
                       child: ValueListenableBuilder<String?>(
                         valueListenable: selectedCharacterAsset,
                         builder: (context, characterPath, child) {
