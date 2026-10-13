@@ -12,56 +12,57 @@ class MapScreen extends StatelessWidget {
         backgroundColor: Colors.transparent,
         foregroundColor: Colors.white,
       ),
-      body: Padding(
+      
+      body: SingleChildScrollView(
         padding: const EdgeInsets.all(30),
-        child: Row(
-          children: [
-            Expanded(
-              child: _worldCard(
-                'BEGINNER FOREST',
-                'Algorithm\nVariables\nData Types',
-                Icons.forest,
-                true,
+        child: Center(
+          child: Wrap(
+            alignment: WrapAlignment.center,
+            spacing: 20,
+            runSpacing: 20,
+            children: [
+              SizedBox(
+                width: 250,
+                child: _worldCard(
+                  'BEGINNER FOREST',
+                  'Algorithm\nVariables\nData Types',
+                  Icons.forest,
+                  true,
+                ),
               ),
-            ),
-
-            const SizedBox(width: 20),
-
-            Expanded(
-              child: _worldCard(
-                'CODING CITY',
-                'Operators\nIf / Else\nBoolean',
-                Icons.location_city,
-                false,
+              SizedBox(
+                width: 250,
+                child: _worldCard(
+                  'CODING CITY',
+                  'Operators\nIf / Else\nBoolean',
+                  Icons.location_city,
+                  false,
+                ),
               ),
-            ),
-
-            const SizedBox(width: 20),
-
-            Expanded(
-              child: _worldCard(
-                'LOOP CASTLE',
-                'For Loop\nWhile Loop\nNested Loop',
-                Icons.castle,
-                false,
+              SizedBox(
+                width: 250,
+                child: _worldCard(
+                  'LOOP CASTLE',
+                  'For Loop\nWhile Loop\nNested Loop',
+                  Icons.castle,
+                  false,
+                ),
               ),
-            ),
-
-            const SizedBox(width: 20),
-
-            Expanded(
-              child: _worldCard(
-                'DEBUG LAB',
-                'Debugging\nCode Puzzle\nBug Hunter',
-                Icons.science,
-                false,
+              SizedBox(
+                width: 250,
+                child: _worldCard(
+                  'DEBUG LAB',
+                  'Debugging\nCode Puzzle\nBug Hunter',
+                  Icons.science,
+                  false,
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );
-  }
+  } 
 
   Widget _worldCard(
     String title,
