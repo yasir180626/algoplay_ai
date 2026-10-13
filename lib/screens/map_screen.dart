@@ -28,35 +28,6 @@ class MapScreen extends StatelessWidget {
                   ),
                 ),
 
-                // DEKORASI POHON
-                ...[
-                  [0.05, 0.28],
-                  [0.13, 0.43],
-                  [0.23, 0.24],
-                  [0.34, 0.36],
-                  [0.42, 0.20],
-                  [0.53, 0.32],
-                  [0.65, 0.20],
-                  [0.76, 0.33],
-                  [0.88, 0.18],
-                  [0.94, 0.44],
-                  [0.08, 0.78],
-                  [0.31, 0.82],
-                  [0.56, 0.80],
-                  [0.77, 0.76],
-                  [0.91, 0.69],
-                ].map(
-                  (p) => Positioned(
-                    left: w * (p[0] as double),
-                    top: h * (p[1] as double),
-                    child: Icon(
-                      Icons.park,
-                      size: w * 0.045,
-                      color: const Color(0xFF185B36),
-                    ),
-                  ),
-                ),
-
                 // JALUR PETUALANGAN
                 Positioned.fill(
                   child: CustomPaint(
