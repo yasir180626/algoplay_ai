@@ -22,31 +22,10 @@ class MapScreen extends StatelessWidget {
               children: [
                 // BACKGROUND HUTAN
                 Positioned.fill(
-                  child: Container(
-                    decoration: const BoxDecoration(
-                      gradient: LinearGradient(
-                        begin: Alignment.topCenter,
-                        end: Alignment.bottomCenter,
-                        colors: [
-                          Color(0xFF75C957),
-                          Color(0xFF398C45),
-                          Color(0xFF174D36),
-                        ],
-                      ),
-                    ),
+                  child: Image.asset(
+                    'assets/backgrounds/word_map.png',
+                    fit: BoxFit.cover,
                   ),
-                ),
-
-                // BENTUK AREA HUTAN
-                Positioned(
-                  left: -w * 0.12,
-                  top: h * 0.12,
-                  child: _island(w * 0.55, h * 0.72),
-                ),
-                Positioned(
-                  right: -w * 0.12,
-                  top: h * 0.18,
-                  child: _island(w * 0.48, h * 0.64),
                 ),
 
                 // DEKORASI POHON
@@ -349,21 +328,6 @@ class MapScreen extends StatelessWidget {
               ],
             );
           },
-        ),
-      ),
-    );
-  }
-
-  static Widget _island(double width, double height) {
-    return Container(
-      width: width,
-      height: height,
-      decoration: BoxDecoration(
-        color: const Color(0x5532A852),
-        borderRadius: BorderRadius.circular(100),
-        border: Border.all(
-          color: const Color(0x447CFF9B),
-          width: 3,
         ),
       ),
     );
