@@ -44,7 +44,7 @@ class MapScreen extends StatelessWidget {
                       Icon(
                         Icons.castle,
                         size: w * 0.075,
-                        color: const Color(0xFF583B83),
+                        color: const Color.fromARGB(255, 10, 6, 17),
                       ),
                       const Text(
                         'GOAL',
