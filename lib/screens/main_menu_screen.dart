@@ -419,7 +419,12 @@ class MainMenuScreen extends StatelessWidget {
             title: 'AI Tutor',
             color: const Color(0xFF8B5CF6),
             onTap: () {
-              _showComingSoon(context, 'AI Tutor');
+               Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const AiTutorScreen(),
+                ),
+              );
             },
           ),
         ),
