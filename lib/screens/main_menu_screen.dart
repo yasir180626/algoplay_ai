@@ -93,6 +93,29 @@ class MainMenuScreen extends StatelessWidget {
                       child: Center(child: _gameLogo()),
                     ),
 
+                    // KARAKTER PILIHAN DI TENGAH LAYAR
+                    Positioned(
+                      left: width * 0.30,
+                      right: width * 0.30,
+                      top: height * 0.28,
+                      bottom: height * 0.08,
+                      child: ValueListenableBuilder<String?>(
+                        valueListenable: selectedCharacterAsset,
+                        builder: (context, characterPath, child) {
+                          if (characterPath == null) {
+                            return const SizedBox.shrink();
+                          }
+
+                          return Image.asset(
+                            characterPath,
+                            fit: BoxFit.contain,
+                            alignment: Alignment.bottomCenter,
+                          );
+                        },
+                      ),
+                    ),
+
+
                     // =================================================
                     // MISSION PANEL
                     // =================================================
