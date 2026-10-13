@@ -400,7 +400,12 @@ class MainMenuScreen extends StatelessWidget {
             title: 'Achievement',
             color: const Color(0xFFFFD43B),
             onTap: () {
-              _showComingSoon(context, 'Achievement');
+                Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const AchievementScreen(),
+                ),
+              );
             },
           ),
         ),
