@@ -67,6 +67,7 @@ flutter:
     - assets/backgrounds/05_main_menu.png
     - assets/characters/player_front.png
     - assets/characters/player_female.png
+    - assets/backgrounds/word_map.png
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg
 
