@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'character_screen.dart';
 import 'map_screen.dart';
 import 'achievement_screen.dart';
+import 'ai_tutor_screen.dart';
 
 class MainMenuScreen extends StatelessWidget {
   const MainMenuScreen({super.key});
