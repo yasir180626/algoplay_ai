@@ -6,8 +6,19 @@ import 'achievement_screen.dart';
 import 'ai_tutor_screen.dart';
 import '../widgets/interactive_game_character.dart';
 
-class MainMenuScreen extends StatelessWidget {
+class MainMenuScreen extends StatefulWidget {
   const MainMenuScreen({super.key});
+
+  @override
+  State<MainMenuScreen> createState() => _MainMenuScreenState();
+}
+
+class _MainMenuScreenState extends State<MainMenuScreen> {
+  @override
+  void initState() {
+    super.initState();
+    loadSelectedCharacter();
+  }
 
   @override
   Widget build(BuildContext context) {
