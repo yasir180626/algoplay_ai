@@ -4,6 +4,7 @@ import 'character_screen.dart';
 import 'map_screen.dart';
 import 'achievement_screen.dart';
 import 'ai_tutor_screen.dart';
+import '../widgets/interactive_game_character.dart';
 
 class MainMenuScreen extends StatelessWidget {
   const MainMenuScreen({super.key});
@@ -106,10 +107,8 @@ class MainMenuScreen extends StatelessWidget {
                             return const SizedBox.shrink();
                           }
 
-                          return Image.asset(
-                            characterPath,
-                            fit: BoxFit.contain,
-                            alignment: Alignment.bottomCenter,
+                          return InteractiveGameCharacter(
+                            imagePath: characterPath,
                           );
                         },
                       ),
