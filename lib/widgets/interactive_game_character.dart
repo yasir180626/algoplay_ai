@@ -46,7 +46,7 @@ class _InteractiveGameCharacterState
     try {
       await _audioPlayer.stop();
       await _audioPlayer.play(
-        AssetSource('audio/character_male.wav'),
+        AssetSource('audio/sfx/character_male.wav'),
       );
     } catch (e) {
       debugPrint('Audio belum tersedia: $e');
