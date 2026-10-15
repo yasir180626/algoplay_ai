@@ -39,19 +39,26 @@ class _InteractiveGameCharacterState
     );
   }
 
+
   Future<void> _react() async {
+    debugPrint('KARAKTER DIKLIK');
+
     _tapController.forward(from: 0);
 
-    // Suara bersifat opsional. Putar jika file tersedia.
+    final audioFile = widget.imagePath.contains('female')
+        ? 'audio/sfx/character_female.mp3'
+        : 'audio/sfx/character_male.mp3';
+
     try {
       await _audioPlayer.stop();
-      await _audioPlayer.play(
-        AssetSource('audio/sfx/character_male.wav'),
-      );
+      await _audioPlayer.play(AssetSource(audioFile));
+
+      debugPrint('Audio dijalankan: $audioFile');
     } catch (e) {
-      debugPrint('Audio belum tersedia: $e');
+      debugPrint('ERROR AUDIO: $e');
     }
   }
+
 
   @override
   void dispose() {
