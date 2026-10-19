@@ -6,18 +6,23 @@ final ValueNotifier<String?> selectedCharacterAsset =
     ValueNotifier<String?>(null);
 
 const String _characterKey = 'selected_character_asset';
+int _selectionRevision = 0;
 
 // Membaca karakter yang tersimpan di perangkat.
 Future<void> loadSelectedCharacter() async {
+  final revision = _selectionRevision;
   final prefs = await SharedPreferences.getInstance();
-  selectedCharacterAsset.value = prefs.getString(_characterKey);
+  if (revision == _selectionRevision) {
+    selectedCharacterAsset.value = prefs.getString(_characterKey);
+  }
 }
 
 // Menyimpan karakter yang dipilih.
 Future<void> saveSelectedCharacter(String imagePath) async {
+  _selectionRevision++;
+  selectedCharacterAsset.value = imagePath;
   final prefs = await SharedPreferences.getInstance();
   await prefs.setString(_characterKey, imagePath);
-  selectedCharacterAsset.value = imagePath;
 }
 
 class CharacterScreen extends StatefulWidget {
@@ -142,20 +147,22 @@ class _CharacterScreenState extends State<CharacterScreen> {
               return SizedBox(
                 width: double.infinity,
                 child: ElevatedButton(
-                  onPressed: isSelected
-                      ? null
-                      : () async {
-                          await saveSelectedCharacter(imagePath);
+                  onPressed: () async {
+                    try {
+                      await saveSelectedCharacter(imagePath);
 
-                          if (!context.mounted) return;
+                      if (!context.mounted) return;
 
-                          ScaffoldMessenger.of(context).showSnackBar(
-                            SnackBar(
-                              content: Text('$name berhasil dipilih!'),
-                              behavior: SnackBarBehavior.floating,
-                            ),
-                          );
-                        },
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        SnackBar(
+                          content: Text('$name berhasil dipilih!'),
+                        ),
+                      );
+                    } catch (e, stackTrace) {
+                      debugPrint('GAGAL MENYIMPAN KARAKTER: $e');
+                      debugPrintStack(stackTrace: stackTrace);
+                    }
+                  },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: isSelected
                         ? const Color(0xFF35D07F)
@@ -163,13 +170,15 @@ class _CharacterScreenState extends State<CharacterScreen> {
                     foregroundColor: const Color(0xFF08111F),
                     disabledBackgroundColor: const Color(0xFF35D07F),
                     disabledForegroundColor: const Color(0xFF08111F),
+                    padding: const EdgeInsets.symmetric(vertical: 14),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(12),
+                    ),
                   ),
                   child: Text(
-                    isSelected ? 'DIPILIH ✓' : 'PILIH KARAKTER',
+                    isSelected ? 'KARAKTER DIPILIH' : 'PILIH KARAKTER',
                     textAlign: TextAlign.center,
-                    style: const TextStyle(
-                      fontWeight: FontWeight.bold,
-                    ),
+                    style: const TextStyle(fontWeight: FontWeight.bold),
                   ),
                 ),
               );

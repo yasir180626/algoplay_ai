@@ -119,6 +119,7 @@ class _MainMenuScreenState extends State<MainMenuScreen> {
                           }
 
                           return InteractiveGameCharacter(
+                            key: ValueKey(characterPath),
                             imagePath: characterPath,
                           );
                         },
